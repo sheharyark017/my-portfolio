@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sheharyar-khan-portfolio.mellow-smile-7812.chatgpt.site/sitemap.xml

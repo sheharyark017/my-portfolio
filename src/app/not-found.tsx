@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="not-found"><p className="eyebrow">404 / OFF THE MAP</p><h1>A little detour.</h1><p>That page doesn’t exist. The good stuff is back home.</p><a className="button primary" href="/">Back to the portfolio ↗</a></main>;}
