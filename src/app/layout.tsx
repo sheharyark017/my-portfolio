@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sheharyar-khan-portfolio.mellow-smile-7812.chatgpt.site'),
+  metadataBase: new URL('https://sheharyar-khan-portfolio.sheharyark017.chatgpt.site'),
   alternates: { canonical: '/' },
   title: 'Sheharyar Khan — Software Engineer',
   description: 'Senior software engineer in Lahore building thoughtful web and mobile products with React, Next.js, React Native, and TypeScript. Explore selected work and experience.',
