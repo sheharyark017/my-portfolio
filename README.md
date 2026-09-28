@@ -24,19 +24,19 @@ The site is configured for Sites hosting through `.openai/hosting.json`. It is i
 
 ## Edit
 
-- `src/app/projects.ts`: six project case studies, sourced from the CV, with supplied portal and Figma links.
+- `src/app/projects.ts`: six project case studies, sourced from the CV, with supplied live links and local screenshot galleries.
 - `src/app/portfolio.tsx`: biography, experience, contact details, accessible interactions, SVG hero.
 - `src/app/globals.css`: responsive styles, colors, animation, reduced-motion handling.
 - `src/app/layout.tsx`: title, SEO, social metadata, canonical URL.
 - `public/Sheharyar-Khan-CV.pdf`: original downloadable résumé.
 - `public/fonts/`: self-hosted Manrope and Newsreader, with OFL licenses.
-- `public/projects/`: selected page captures from the supplied Figma designs and the public Attack Insights site.
+- `public/projects/`: 21 user-supplied project screenshots across five folders. Attack Insights has no image.
 
 ## Features
 
 Interactive geometric hero with color remix; prominent skills section; six project detail dialogs with screen galleries; full-width section backgrounds; expandable career history; responsive mobile navigation; original résumé download; email and LinkedIn links; clipboard contact control; scroll progress; keyboard focus states; reduced-motion preference and manual pause; local font assets; static 404 page; metadata and social card.
 
-Contact links open the visitor's mail client; the site does not claim to submit messages to a backend. Project artwork is an abstract visual interpretation; the detail galleries contain actual design captures. Portal links are marked invite-only. No invented project URLs, testimonials, or metrics.
+Contact links open the visitor's mail client; the site does not claim to submit messages to a backend. Project artwork is an abstract visual interpretation; the detail galleries contain the supplied product screenshots. Portal links are marked invite-only. No invented project URLs, testimonials, or metrics.
 
 ## References
 

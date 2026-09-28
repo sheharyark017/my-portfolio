@@ -1,5 +1,5 @@
-export interface ProjectImage { src:string; title:string; caption:string; source:string; sourceUrl:string; }
-export interface Project { id:string; number:string; name:string; kind:string; color:string; title:string; summary:string; tags:string[]; challenge:string; contributions:string[]; stack:string; figma?:string; website?:string; websiteLabel?:string; access:string; images:ProjectImage[]; }
+export interface ProjectImage { src:string; title:string; caption:string; }
+export interface Project { id:string; number:string; name:string; kind:string; color:string; title:string; summary:string; tags:string[]; challenge:string; contributions:string[]; stack:string; website?:string; access:string; images:ProjectImage[]; }
 export const projects: Project[] = [
   {
     "id": "billwell",
@@ -21,10 +21,28 @@ export const projects: Project[] = [
       "Implemented AWS Cognito flows across Next.js Server Actions, API routes, and mobile: verification, password recovery, MFA, token refresh, protected sessions, rate limiting, and audit logging."
     ],
     "stack": "Next.js 16 · React 19 · React Native · Expo · TypeScript · Redux Toolkit · RTK Query · AWS Cognito · Upstash Redis · Zod · Cypress",
-    "figma": "https://www.figma.com/design/hbD7ktThCV9uSNWIHAT7AH/Bill-Well--internal-?node-id=28002-245044",
     "access": "Invite-only portal",
     "images": [
-      { "src": "/projects/billwell-case.jpg", "title": "Case detail", "caption": "A connected case view for bill review, concierge support, and dispute progress.", "source": "Figma design", "sourceUrl": "https://www.figma.com/design/hbD7ktThCV9uSNWIHAT7AH/Bill-Well--internal-?node-id=28663-56600" }
+      {
+        "src": "/projects/billwell/Onboarding.png",
+        "title": "Profile onboarding",
+        "caption": "A guided start to the medical-bill support experience."
+      },
+      {
+        "src": "/projects/billwell/9.png",
+        "title": "Insurance card upload",
+        "caption": "A focused document step within the member onboarding flow."
+      },
+      {
+        "src": "/projects/billwell/Main%20Case.png",
+        "title": "Case creation",
+        "caption": "Details and documents come together in a single case workflow."
+      },
+      {
+        "src": "/projects/billwell/EDu.png",
+        "title": "Concierge messaging",
+        "caption": "A direct conversation alongside the case experience."
+      }
     ]
   },
   {
@@ -47,10 +65,33 @@ export const projects: Project[] = [
       "Implemented interactive organizational charts and data-rich interfaces using React Flow, TanStack Table, and Recharts."
     ],
     "stack": "Next.js 16 · React 19 · TypeScript · Turborepo · Redux Toolkit · Tailwind CSS v4 · Radix UI · shadcn/ui · TanStack Table · React Flow · Recharts",
-    "figma": "https://www.figma.com/design/iao4XJyPuB4uCa9ORfuFa6/Folium-HR-Platform?node-id=28001-47945",
     "access": "Invite-only portal",
     "images": [
-      { "src": "/projects/hr-timesheet.jpg", "title": "Employee timesheet", "caption": "Attendance, schedule, and leave activity in the employee portal.", "source": "Figma design", "sourceUrl": "https://www.figma.com/design/iao4XJyPuB4uCa9ORfuFa6/Folium-HR-Platform?node-id=29291-68982" }
+      {
+        "src": "/projects/hr-portal/Frame%20717.png",
+        "title": "Admin dashboard",
+        "caption": "A high-level view of people and operations."
+      },
+      {
+        "src": "/projects/hr-portal/Frame%20591.png",
+        "title": "Global timesheet",
+        "caption": "Attendance records gathered in one operational view."
+      },
+      {
+        "src": "/projects/hr-portal/Timesheet.png",
+        "title": "Employee timesheet",
+        "caption": "An individual view of time and activity."
+      },
+      {
+        "src": "/projects/hr-portal/On%20Hover%20Bheaviour.png",
+        "title": "Organization directory",
+        "caption": "People and reporting lines in an interactive structure."
+      },
+      {
+        "src": "/projects/hr-portal/Need%20Approval.png",
+        "title": "Workspace branding",
+        "caption": "A setup flow for the organization workspace."
+      }
     ]
   },
   {
@@ -74,11 +115,8 @@ export const projects: Project[] = [
     ],
     "stack": "Next.js · React · TypeScript · RTK Query · Redis · REST APIs · Tailwind CSS · Ant Design",
     "access": "Invite-only portal",
-    "images": [
-      { "src": "/projects/attack-insights-home.jpg", "title": "Public website", "caption": "The Attack Insights platform introduction and external attack surface management story.", "source": "Live website", "sourceUrl": "https://attackinsights.ai/" }
-    ],
-    "website": "https://attackinsights.ai/",
-    "websiteLabel": "Visit website"
+    "images": [],
+    "website": "https://attackinsights.ai/"
   },
   {
     "id": "seedfunds",
@@ -100,17 +138,28 @@ export const projects: Project[] = [
       "Worked on cross-platform mobile performance and role-based product workflows."
     ],
     "stack": "React · Next.js · React Native · Expo · Expo Router · TypeScript · Turborepo · Redux Toolkit · RTK Query · React Navigation · Reanimated",
-    "figma": "https://www.figma.com/design/zyq6i4V090E8z1tLtQbZcd/Seed-Fund-V2---internal-?node-id=28002-47996",
     "website": "https://stage.app.seedfunds.ai/",
-    "websiteLabel": "Open staging portal",
     "access": "Invite-only portal",
     "images": [
       {
-        "src": "/projects/seedfunds-orders.jpg",
-        "title": "Orders & enrollments",
-        "caption": "Youth portal: activities, service enrollments, and order tracking.",
-        "source": "Figma design",
-        "sourceUrl": "https://www.figma.com/design/zyq6i4V090E8z1tLtQbZcd/Seed-Fund-V2---internal-?node-id=28119-67053"
+        "src": "/projects/seedfunds/opt%201.png",
+        "title": "Choose interests",
+        "caption": "A personal starting point for relevant opportunities."
+      },
+      {
+        "src": "/projects/seedfunds/Onboarding%20%281%29.png",
+        "title": "Search radius setup",
+        "caption": "Location preferences for nearby activities and support."
+      },
+      {
+        "src": "/projects/seedfunds/map%20%281%29.png",
+        "title": "Nearby activities",
+        "caption": "Explore opportunities on a map."
+      },
+      {
+        "src": "/projects/seedfunds/Dashbaord.png",
+        "title": "Accountant AI",
+        "caption": "Conversational guidance within the connected platform."
       }
     ]
   },
@@ -134,12 +183,29 @@ export const projects: Project[] = [
       "Connected mobile state management and performance with shared platform services."
     ],
     "stack": "React · Next.js · React Native · Expo · TypeScript · Turborepo · Redux Toolkit · RTK Query · React Navigation · Reanimated",
-    "figma": "https://www.figma.com/design/1woD8b8Wjcwmc1blqlaBYT/FOSTER-FERRET-V2.0?node-id=6782-109717",
     "website": "https://app.fosterferret.ai/login",
-    "websiteLabel": "Open portal",
     "access": "Invite-only portal",
     "images": [
-      { "src": "/projects/foster-ask-ferret.jpg", "title": "Ask Ferret", "caption": "A direct support conversation within the youth portal.", "source": "Figma design", "sourceUrl": "https://www.figma.com/design/1woD8b8Wjcwmc1blqlaBYT/FOSTER-FERRET-V2.0?node-id=9024-13708" }
+      {
+        "src": "/projects/foster/Dasboard%20With%20Data.png",
+        "title": "Youth dashboard",
+        "caption": "A clear home for activity and support."
+      },
+      {
+        "src": "/projects/foster/Ask%20Ferret.png",
+        "title": "Ask Ferret",
+        "caption": "A conversational support experience."
+      },
+      {
+        "src": "/projects/foster/Digital%20Vault.png",
+        "title": "Digital vault",
+        "caption": "Important information kept close at hand."
+      },
+      {
+        "src": "/projects/foster/Consent.png",
+        "title": "Parent consent",
+        "caption": "A guided consent step for caregivers."
+      }
     ]
   },
   {
@@ -162,12 +228,29 @@ export const projects: Project[] = [
       "Integrated REST APIs and shared state-management patterns in a Turborepo architecture."
     ],
     "stack": "React · Next.js · TypeScript · Turborepo · Redux Toolkit · RTK Query · REST APIs",
-    "figma": "https://www.figma.com/design/YVa91t4quOJnZ9B2Gvt0e9/Money-Talks?node-id=28004-47945",
     "website": "https://folium.stage-app.money-talks.ai/",
-    "websiteLabel": "Open staging portal",
     "access": "Invite-only portal",
     "images": [
-      { "src": "/projects/money-talks-dashboard.jpg", "title": "Student dashboard", "caption": "Milestones and financial learning domains presented as an engaging journey.", "source": "Figma design", "sourceUrl": "https://www.figma.com/design/YVa91t4quOJnZ9B2Gvt0e9/Money-Talks?node-id=28550-7230" }
+      {
+        "src": "/projects/money-talks/Primary%20%28K%E2%80%932%29%20%281%29.jpg",
+        "title": "Lesson overview",
+        "caption": "A playful introduction to everyday money choices."
+      },
+      {
+        "src": "/projects/money-talks/Primary%20%28K%E2%80%932%29.jpg",
+        "title": "Learning activity",
+        "caption": "A visual learning experience for younger students."
+      },
+      {
+        "src": "/projects/money-talks/3.png",
+        "title": "Concept check",
+        "caption": "Interactive practice that reinforces a lesson."
+      },
+      {
+        "src": "/projects/money-talks/Progress.jpg",
+        "title": "Learning progress",
+        "caption": "A view of milestones across the learning journey."
+      }
     ]
   }
 ];
