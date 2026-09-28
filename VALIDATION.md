@@ -9,6 +9,7 @@ Passed:
 - Full-bleed backgrounds verified at 1920px: skills and work sections both span the viewport width, with no horizontal overflow.
 - All six project dialogs have accessible names. The six project cards use matching illustrated banners, including a radar and shield for Attack Insights. Its detail dialog has no screenshot gallery.
 - All 21 supplied project images are included in the static export and return HTTP 200 with an image content type.
+- Each project card exposes one visible detail action; artwork and card body no longer open the dialog. Folium AI and Cyber Evangelists descriptions and highlights were checked in the browser.
 - The image viewer opens over a project gallery and closes through its prominent button, outside click, or Escape, returning to the same project.
 - Mobile menu opens, navigates to Contact, and closes afterward.
 - Pause motion updates its pressed state; back-to-top navigation works.
