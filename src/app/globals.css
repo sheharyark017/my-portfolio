@@ -42,6 +42,11 @@ html[data-motion=paused]{scroll-behavior:auto}html[data-motion=paused] *,html[da
 .lightbox-frame figcaption span{color:#bac5b0;font-size:11px}
 .read-story{display:inline-flex;align-items:center;gap:15px;width:auto;padding:8px 0 5px;background:none;color:var(--ink);border-bottom:1px solid #adb6a4;text-align:left;min-height:44px}
 .read-story:hover{color:#526a3d;border-bottom-color:#526a3d}
+.project-open:hover .read-story{color:#526a3d;border-bottom-color:#526a3d}
+.exp-plus{position:relative;font-size:0;flex-shrink:0}
+.exp-plus::before,.exp-plus::after{content:"";position:absolute;left:50%;top:50%;background:currentColor;border-radius:2px;transform:translate(-50%,-50%)}
+.exp-plus::before{width:12px;height:1.5px}
+.exp-plus::after{width:1.5px;height:12px}
 .experience-detail>p:not(.eyebrow){font-size:14px;color:#53604e;line-height:1.75}
 .experience-detail ul{margin:14px 0 0;padding-left:18px;color:#596552}
 .experience-detail li{font-size:13px;line-height:1.7;margin:8px 0;padding-left:3px}
