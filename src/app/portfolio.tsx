@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { projects, type Project } from './projects';
+import { projects, type Project, type ProjectImage } from './projects';
 
 const email='sheharyark017@gmail.com';
 const linkedin='https://www.linkedin.com/in/sheharyar-khan-a8b3b3222/';
@@ -36,24 +36,24 @@ function SystemSculpture(){
 
 function ProjectArt({id}:{id:string}){return <div className={`project-art art-${id}`} aria-hidden="true">
  <span className="visual-label">{id==='billwell'?'CONNECTED CARE':id==='hr'?'PEOPLE, CONNECTED':id==='attack'?'SIGNAL / NOISE':id==='seedfunds'?'OPPORTUNITY, CONNECTED':id==='foster'?'A NETWORK OF SUPPORT':'FINANCIAL CONFIDENCE'}</span>
- {id==='billwell'?<div className="billwell-art"><div className="medical-cross"><i/><i/></div><div className="signal-ring r1"/><div className="signal-ring r2"/><div className="signal-ring r3"/><span className="small-plus">+</span></div>:id==='hr'?<div className="org-art"><svg viewBox="0 0 400 240"><path d="M200 50V115M75 175V115H325V175M200 115V175" fill="none" stroke="currentColor" strokeWidth="2"/>{[[200,50],[75,175],[200,175],[325,175]].map(([x,y],i)=><g key={x+'-'+y}><rect x={x-34} y={y-28} width="68" height="56" rx="18" fill={i===0?'#535dad':'#e1e1fa'}/><circle cx={x} cy={y-7} r="8" fill={i===0?'#dbe0ff':'#7377b3'}/><path d={`M${x-14} ${y+16} Q${x-14} ${y+2} ${x} ${y+2} Q${x+14} ${y+2} ${x+14} ${y+16}`} fill={i===0?'#dbe0ff':'#7377b3'}/></g>)}</svg></div>:id==='attack'?<div className="radar"><i/><i/><i/><div className="radar-sweep"/><span className="radar-point p1"/><span className="radar-point p2"/><span className="radar-point p3"/><div className="radar-core">⌁</div></div>:<div className="growth-art"><div className="growth-leaf l1"/><div className="growth-leaf l2"/><div className="growth-leaf l3"/><div className="growth-stem"/><div className="growth-seed"/></div>}
+ {id==='billwell'?<div className="billwell-art"><div className="medical-cross"><i/><i/></div><div className="signal-ring r1"/><div className="signal-ring r2"/><div className="signal-ring r3"/><span className="small-plus">+</span></div>:id==='hr'?<div className="org-art"><svg viewBox="0 0 400 240"><path d="M200 50V115M75 175V115H325V175M200 115V175" fill="none" stroke="currentColor" strokeWidth="2"/>{[[200,50],[75,175],[200,175],[325,175]].map(([x,y],i)=><g key={x+'-'+y}><rect x={x-34} y={y-28} width="68" height="56" rx="18" fill={i===0?'#535dad':'#e1e1fa'}/><circle cx={x} cy={y-7} r="8" fill={i===0?'#dbe0ff':'#7377b3'}/><path d={`M${x-14} ${y+16} Q${x-14} ${y+2} ${x} ${y+2} Q${x+14} ${y+2} ${x+14} ${y+16}`} fill={i===0?'#dbe0ff':'#7377b3'}/></g>)}</svg></div>:id==='attack'?<div className="radar"><i/><i/><i/><div className="radar-sweep"/><span className="radar-point p1"/><span className="radar-point p2"/><span className="radar-point p3"/><div className="radar-core"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 5 52 13v16c0 13-8 23-20 30C20 52 12 42 12 29V13L32 5Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/><rect x="23" y="29" width="18" height="15" rx="3" fill="currentColor"/><path d="M27 29v-5a5 5 0 0 1 10 0v5" stroke="currentColor" strokeWidth="3"/></svg></div></div>:<div className="growth-art"><div className="growth-leaf l1"/><div className="growth-leaf l2"/><div className="growth-leaf l3"/><div className="growth-stem"/><div className="growth-seed"/></div>}
  <span className="visual-caption">{id==='billwell'?'WEB ↔ IOS ↔ ANDROID':id==='hr'?'STRUCTURE WITHOUT FRICTION':id==='attack'?'VERIFY → SCAN → UNDERSTAND':id==='seedfunds'?'LEARN. CONNECT. THRIVE.':id==='foster'?'YOUTH ↔ CAREGIVERS ↔ COMMUNITY':'LEARN → REFLECT → GROW'}</span>
  </div>}
 
 
-function ProjectGallery({project}:{project:Project}){
+function ProjectGallery({project,onOpen}:{project:Project;onOpen:(screen:ProjectImage)=>void}){
  return <section className="project-gallery" aria-label={`${project.name} screen gallery`}>
   <div className="gallery-heading"><h3>Inside the product</h3><span>{String(project.images.length).padStart(2,'0')} SCREENS</span></div>
   <div className="gallery-grid">{project.images.map((screen,index)=><figure className="gallery-item" key={screen.src}>
-   <a className="gallery-image-link" href={screen.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size ${screen.title} image`}>
+   <button type="button" className="gallery-image-link" onClick={()=>onOpen(screen)} aria-label={`Open full-size ${screen.title} image`}>
     <img src={screen.src} alt={`${project.name}: ${screen.caption}`} loading={index===0?'eager':'lazy'}/><span>View full size ↗</span>
-   </a><figcaption><strong>{screen.title}</strong><p>{screen.caption}</p></figcaption>
+   </button><figcaption><strong>{screen.title}</strong><p>{screen.caption}</p></figcaption>
   </figure>)}</div>
  </section>;
 }
 
 export default function Portfolio(){
- const [menu,setMenu]=useState(false);const [active,setActive]=useState('');const [paused,setPaused]=useState(false);const [copied,setCopied]=useState(false);const [copyFailed,setCopyFailed]=useState(false);const [selected,setSelected]=useState<typeof projects[number]|null>(null);const dialog=useRef<HTMLDialogElement>(null);const [progress,setProgress]=useState(0);
+ const [menu,setMenu]=useState(false);const [active,setActive]=useState('');const [paused,setPaused]=useState(false);const [copied,setCopied]=useState(false);const [copyFailed,setCopyFailed]=useState(false);const [selected,setSelected]=useState<typeof projects[number]|null>(null);const [lightbox,setLightbox]=useState<ProjectImage|null>(null);const dialog=useRef<HTMLDialogElement>(null);const lightboxDialog=useRef<HTMLDialogElement>(null);const [progress,setProgress]=useState(0);
  useEffect(()=>{
   const media=matchMedia('(prefers-reduced-motion: reduce)');setPaused(media.matches);const change=()=>setPaused(media.matches);media.addEventListener('change',change);
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
@@ -63,6 +63,7 @@ export default function Portfolio(){
  },[]);
  useEffect(()=>{document.documentElement.dataset.motion=paused?'paused':'running';},[paused]);
  useEffect(()=>{if(selected){dialog.current?.showModal();const original=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{document.body.style.overflow=original;};}else dialog.current?.close();},[selected]);
+ useEffect(()=>{if(lightbox){lightboxDialog.current?.showModal();return()=>{lightboxDialog.current?.close();};}else lightboxDialog.current?.close();},[lightbox]);
  useEffect(()=>{if(!copied)return;const t=setTimeout(()=>setCopied(false),2500);return()=>clearTimeout(t);},[copied]);
  async function copyEmail(){try{await navigator.clipboard.writeText(email);setCopied(true);setCopyFailed(false);}catch{setCopyFailed(true);}}
  const navigation=[['skills','Skills'],['work','Work'],['experience','Experience'],['about','About']];
@@ -91,7 +92,7 @@ export default function Portfolio(){
    </section>
    <section id="work" className="work section-wrap">
     <div className="section-heading reveal"><div><p className="eyebrow">02 / SELECTED WORK</p><h2>Real problems.<br/><span className="serif">Considered solutions.</span></h2></div><p>From healthcare to cybersecurity.<br/>A few things I’ve helped bring to life.</p></div>
-    <div className="project-grid">{projects.map(p=><article className={`project-card ${p.color} ${p.id==='attack'?'project-card-text':''} reveal`} key={p.id}><button className="project-open" onClick={()=>setSelected(p)} aria-label={`Explore ${p.name}`}>{p.id!=='attack'&&<ProjectArt id={p.id}/>}<div className="project-copy"><div className="project-meta"><span>{p.number} / {p.kind}</span><span className="project-arrow"><Arrow/></span></div><h3>{p.name}</h3><span className="access-badge"><span aria-hidden="true">⌑</span> {p.access}</span><p>{p.summary}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div><span className="read-story">Explore the project <Arrow/></span></div></button><div className="project-resources">{p.website&&<a href={p.website} target="_blank" rel="noopener noreferrer">Live link <Arrow/></a>}</div></article>)}</div>
+    <div className="project-grid">{projects.map(p=><article className={`project-card ${p.color} reveal`} key={p.id}><button className="project-open" onClick={()=>setSelected(p)} aria-label={`Explore ${p.name}`}><ProjectArt id={p.id}/><div className="project-copy"><div className="project-meta"><span>{p.number} / {p.kind}</span><span className="project-arrow"><Arrow/></span></div><h3>{p.name}</h3><span className="access-badge"><span aria-hidden="true">⌑</span> {p.access}</span><p>{p.summary}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div><span className="read-story">Explore the project <Arrow/></span></div></button><div className="project-resources">{p.website&&<a href={p.website} target="_blank" rel="noopener noreferrer">Live link <Arrow/></a>}</div></article>)}</div>
    </section>
    <section className="principles section-wrap"><p className="eyebrow reveal">THE WAY I BUILD</p><div className="principle-grid"><h2 className="reveal">The details matter.<br/><span className="serif">So does the system.</span></h2><div className="principle-list">{[['01','Interfaces with intent','Reusable, responsive, accessible interfaces. Built around the people using them.'],['02','Strong foundations','Modular architecture, secure authentication, thoughtful state management, and reliable APIs.'],['03','Better, together','Clear technical decisions, constructive code reviews, and shared engineering standards.']].map(([n,t,d])=><div className="principle reveal" key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div></div>)}</div></div></section>
    <section id="experience" className="experience section-wrap"><div className="section-heading reveal"><div><p className="eyebrow">03 / THE JOURNEY</p><h2>Always building.<br/><span className="serif">Always moving forward.</span></h2></div><a className="text-link" href="/Sheharyar-Khan-CV.pdf" download>Full résumé <span aria-hidden="true">↓</span></a></div><div className="experience-list">{experience.map((e,i)=><details className="experience-row reveal" key={e.company} open={i===0}><summary><span className="exp-year">{e.year}</span><div><h3>{e.company}</h3><p>{e.role}</p></div><span className="exp-plus" aria-hidden="true">+</span></summary><div className="experience-detail"><p className="eyebrow">{e.date}</p><p>{e.detail}</p></div></details>)}</div></section>
@@ -103,8 +104,11 @@ export default function Portfolio(){
   <dialog ref={dialog} aria-labelledby="project-title" className="project-dialog" onCancel={()=>setSelected(null)} onClose={()=>setSelected(null)} onClick={e=>{if(e.target===e.currentTarget)setSelected(null);}}>{selected&&<div className="dialog-inner"><button className="dialog-close" autoFocus onClick={()=>setSelected(null)} aria-label="Close project details">✕</button><p className="eyebrow">{selected.number} / {selected.kind}</p><h2 id="project-title">{selected.name}</h2><p className="dialog-lead serif">{selected.title}</p>
    <div className="project-access"><span className="access-badge">⌑ {selected.access}</span><p>Access is provided by invitation. The portal requires an authorized account.</p></div>
    <div className="dialog-resources">{selected.website&&<a href={selected.website} target="_blank" rel="noopener noreferrer">Live link <Arrow/></a>}</div>
-   {selected.images.length>0&&<ProjectGallery key={selected.id} project={selected}/>}
+   {selected.images.length>0&&<ProjectGallery key={selected.id} project={selected} onOpen={setLightbox}/>}
    <div className="case-study-copy"><div><h3>The challenge</h3><p>{selected.challenge}</p><h3>The toolkit</h3><p className="dialog-stack">{selected.stack}</p></div><div><h3>My contribution</h3><ul>{selected.contributions.map(c=><li key={c}>{c}</li>)}</ul></div></div>
    <a href={`mailto:${email}?subject=${encodeURIComponent('Let’s talk about '+selected.name)}`} className="button primary">Talk about this project <Arrow/></a></div>}</dialog>
+  <dialog ref={lightboxDialog} className="lightbox-dialog" aria-labelledby="lightbox-title" onCancel={()=>setLightbox(null)} onClose={()=>setLightbox(null)} onClick={e=>{if(e.target===e.currentTarget)setLightbox(null);}}>
+   {lightbox&&<><button type="button" className="lightbox-close" autoFocus onClick={()=>setLightbox(null)} aria-label="Close image viewer">✕</button><figure className="lightbox-frame"><img src={lightbox.src} alt={lightbox.caption}/><figcaption><strong id="lightbox-title">{lightbox.title}</strong><span>Click outside or press Esc to close</span></figcaption></figure></>}
+  </dialog>
  </>;
 }
